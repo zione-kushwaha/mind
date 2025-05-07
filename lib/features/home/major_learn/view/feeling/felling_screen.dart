@@ -1,4 +1,4 @@
-import 'package:abc/features/home/learn/activities/view/activities.dart';
+import 'package:abc/features/home/major_learn/view/activities/view/activities.dart';
 import 'package:abc/features/home/major_learn/view/feeling/feeling_test.dart';
 import 'package:abc/features/home/major_learn/view/food/food_screen.dart';
 import 'package:flutter/material.dart';

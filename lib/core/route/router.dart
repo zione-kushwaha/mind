@@ -1,5 +1,9 @@
-import 'package:abc/features/home/learn/activities/view/activities.dart';
-import 'package:abc/features/home/learn/activities/view/activity_test.dart';
+import 'package:abc/features/home/Emotion/src/ui/pages/game/Emotion_view.dart';
+import 'package:abc/features/home/learn/learn_alphabets/view/learn_alphabet_view.dart';
+import 'package:abc/features/home/learn/memory_game/homepage.dart';
+import 'package:abc/features/home/learn_time/StartClock.dart';
+import 'package:abc/features/home/major_learn/view/activities/view/activities.dart';
+import 'package:abc/features/home/major_learn/view/activities/view/activity_test.dart';
 import 'package:abc/features/home/major_learn/view/animal/animal_screen.dart';
 import 'package:abc/features/home/major_learn/view/animal/animal_test.dart';
 import 'package:abc/features/home/major_learn/view/color/color_screen.dart';
@@ -15,7 +19,11 @@ import 'package:abc/features/home/major_learn/view/people/people_test.dart';
 import 'package:abc/features/home/major_learn/view/school/school_screen.dart';
 import 'package:abc/features/home/major_learn/view/school/school_test.dart';
 import 'package:abc/features/home/surface/view/home_screen.dart';
+import 'package:abc/previous/practice_speaking/view/practice_speaking.dart';
+import 'package:abc/previous/text_reconization/view/text_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../previous/orientation_test/view/orientation_view.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -24,49 +32,68 @@ class AppRouter {
         return _customPageRoute(ChildHomeScreen());
 
       case ActivityScreen.routeName:
-        return _customPageRoute(ActivityScreen());
+        return _fadePageRoute(ActivityScreen());
 
       case ActivityTest.routeName:
-        return _customPageRoute(ActivityTest());
+        return _fadePageRoute(ActivityTest());
 
       case ContentScreenLearning.routeName:
-        return _customPageRoute(ContentScreenLearning());
+        return _fadePageRoute(ContentScreenLearning());
 
       case PeopleScreen.routeName:
-        return _customPageRoute(PeopleScreen());
+        return _fadePageRoute(PeopleScreen());
 
       case AnimalScreen.routeName:
-        return _customPageRoute(AnimalScreen());
+        return _fadePageRoute(AnimalScreen());
 
       case SchoolScreen.routeName:
-        return _customPageRoute(SchoolScreen());
+        return _fadePageRoute(SchoolScreen());
 
       case FoodScreen.routeName:
-        return _customPageRoute(FoodScreen());
+        return _fadePageRoute(FoodScreen());
 
       case FeelingScreen.routeName:
-        return _customPageRoute(FeelingScreen());
+        return _fadePageRoute(FeelingScreen());
       case ColorScreen.routeName:
-        return _customPageRoute(ColorScreen());
+        return _fadePageRoute(ColorScreen());
       case ConversationScreen.routeName:
-        return _customPageRoute(ConversationScreen());
+        return _fadePageRoute(ConversationScreen());
 
       case AnimalTest.routeName:
-        return _customPageRoute(AnimalTest());
+        return _fadePageRoute(AnimalTest());
 
       case PeopleTest.routeName:
-        return _customPageRoute(PeopleTest());
+        return _fadePageRoute(PeopleTest());
       case SchoolTest.routeName:
-        return _customPageRoute(SchoolTest());
+        return _fadePageRoute(SchoolTest());
 
       case ColorTest.routeName:
-        return _customPageRoute(ColorTest());
+        return _fadePageRoute(ColorTest());
 
       case FeelingTest.routeName:
-        return _customPageRoute(FeelingTest());
+        return _fadePageRoute(FeelingTest());
 
       case FoodTest.routeName:
-        return _customPageRoute(FoodTest());
+        return _fadePageRoute(FoodTest());
+
+      case PracticeSpeaking.routeName:
+        return _fadePageRoute(PracticeSpeaking());
+
+      case LearnAlphabetView.routeName:
+        return _fadePageRoute(LearnAlphabetView());
+      case MemoryHomePage.routeName:
+        return _fadePageRoute(MemoryHomePage());
+
+      case EmotionView.routeName:
+        return _fadePageRoute(EmotionView());
+
+      case StartClock.routeName:
+        return _fadePageRoute(StartClock());
+
+      case TextReconization.routeName:
+        return _fadePageRoute(TextReconization());
+      case OrientationView.routeName:
+        return _fadePageRoute(OrientationView());
       default:
         return MaterialPageRoute(
           builder:
@@ -76,23 +103,17 @@ class AppRouter {
     }
   }
 
-  static PageRouteBuilder _customPageRoute(Widget page) {
+  static PageRouteBuilder _fadePageRoute(Widget page) {
     return PageRouteBuilder(
-      transitionDuration: const Duration(milliseconds: 300),
+      transitionDuration: const Duration(milliseconds: 500),
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.0, 0.0);
-        const end = Offset.zero;
-        const curve = Curves.easeInOut;
-
-        var tween = Tween(
-          begin: begin,
-          end: end,
-        ).chain(CurveTween(curve: curve));
-        var offsetAnimation = animation.drive(tween);
-
-        return SlideTransition(position: offsetAnimation, child: child);
+        return FadeTransition(opacity: animation, child: child);
       },
     );
+  }
+
+  static MaterialPageRoute _customPageRoute(Widget page) {
+    return MaterialPageRoute(builder: (context) => page);
   }
 }

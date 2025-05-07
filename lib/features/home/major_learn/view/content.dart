@@ -1,11 +1,11 @@
-import 'package:abc/features/home/learn/activities/view/activities.dart';
-import 'package:abc/features/home/major_learn/view/animal/animal_screen.dart';
-import 'package:abc/features/home/major_learn/view/color/color_screen.dart';
-import 'package:abc/features/home/major_learn/view/conversation/conversation.dart';
-import 'package:abc/features/home/major_learn/view/feeling/felling_screen.dart';
-import 'package:abc/features/home/major_learn/view/food/food_screen.dart';
-import 'package:abc/features/home/major_learn/view/people/people.dart';
-import 'package:abc/features/home/major_learn/view/school/school_screen.dart';
+import '/features/home/major_learn/view/activities/view/activities.dart';
+import '/features/home/major_learn/view/animal/animal_screen.dart';
+import '/features/home/major_learn/view/color/color_screen.dart';
+import '/features/home/major_learn/view/conversation/conversation.dart';
+import '/features/home/major_learn/view/feeling/felling_screen.dart';
+import '/features/home/major_learn/view/food/food_screen.dart';
+import '/features/home/major_learn/view/people/people.dart';
+import '/features/home/major_learn/view/school/school_screen.dart';
 import 'package:flutter/material.dart';
 
 class ContentScreenLearning extends StatefulWidget {
