@@ -1,14 +1,15 @@
-import 'package:abc/features/home/AAC/UI/locked/screens/home_screen.dart';
-import 'package:abc/features/home/Emotion/src/ui/pages/game/Emotion_view.dart';
-import 'package:abc/features/home/learn/learn_alphabets/view/learn_alphabet_view.dart';
-import 'package:abc/features/home/learn/memory_game/homepage.dart';
-import 'package:abc/features/home/learn_time/StartClock.dart';
-import 'package:abc/features/home/major_learn/view/content.dart';
-import 'package:abc/previous/orientation_test/view/orientation_view.dart';
-import 'package:abc/previous/practice_speaking/view/practice_speaking.dart';
-import 'package:abc/previous/text_reconization/view/text_view.dart';
-import 'package:abc/tab/game/view.dart';
-import 'package:abc/tab/task/task_view/features/home/presentation/screens/home_screen.dart';
+import '../../../../tab/profile/profile_view.dart';
+import '/features/home/Emotion/src/ui/pages/game/Emotion_view.dart';
+import '/features/home/learn/learn_alphabets/view/learn_alphabet_view.dart';
+import '/features/home/AAC/UI/locked/screens/home_screen.dart';
+import '/features/home/learn/memory_game/homepage.dart';
+import '/features/home/learn_time/StartClock.dart';
+import '/features/home/major_learn/view/content.dart';
+import '/previous/orientation_test/view/orientation_view.dart';
+import '/previous/practice_speaking/view/practice_speaking.dart';
+import '/previous/text_reconization/view/text_view.dart';
+import '/tab/game/view.dart';
+import '/tab/task/task_view/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../AAC/models/data/data.dart';
 import '../../AAC/models/data/jsonString.dart';
@@ -38,7 +39,6 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
       'image': 'assets/alphabet.png',
       'subtitle': 'Learn letters with sounds!',
     },
-
     {
       'title': 'AAC Words',
       'icon': Icons.text_fields,
@@ -127,7 +127,9 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
       ),
       body:
           _selectedIndex != 0
-              ? TaskView()
+              ? (_selectedIndex == 1
+                  ? MatchHome()
+                  : (_selectedIndex == 2 ? TaskView() : ProfileView()))
               : SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: Padding(
@@ -180,11 +182,8 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.games), label: 'Games'),
-          BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'Songs'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'Tasks'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
@@ -454,10 +453,12 @@ class _ChildHomeScreenState extends State<ChildHomeScreen> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                _buildCharacterCircle('assets/character1.png', 'Ally'),
-                _buildCharacterCircle('assets/character2.png', 'Buddy'),
-                _buildCharacterCircle('assets/character3.png', 'Charlie'),
-                _buildCharacterCircle('assets/character4.png', 'Daisy'),
+                _buildCharacterCircle('assets/character1.png', 'Sonika'),
+                _buildCharacterCircle('assets/character2.png', 'Siddhi'),
+                _buildCharacterCircle('assets/character3.png', 'Rechal'),
+                _buildCharacterCircle('assets/character4.png', 'Sonika'),
+                _buildCharacterCircle('assets/character2.png', 'Siddhi'),
+                _buildCharacterCircle('assets/character3.png', 'Rechal'),
               ],
             ),
           ),

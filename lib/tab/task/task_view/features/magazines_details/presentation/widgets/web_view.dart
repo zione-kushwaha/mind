@@ -81,13 +81,12 @@ class _ReportViewState extends State<ReportView> {
       ..addJavaScriptChannel(
         'Toaster',
         onMessageReceived: (JavaScriptMessage message) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(message.message)),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(message.message)));
         },
       )
-      ..loadRequest(
-          Uri.parse('https://machadop1407.github.io/chartjs-react-tutorial/'));
+      ..loadRequest(Uri.parse('https://hult-1.vercel.app/'));
 
     if (controller.platform is AndroidWebViewPlatform) {
       // Handle any Android-specific configurations here if needed
@@ -116,9 +115,7 @@ class _ReportViewState extends State<ReportView> {
               Visibility(
                 visible: isLoading,
                 child: const Positioned.fill(
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  child: Center(child: CircularProgressIndicator()),
                 ),
               ),
             ],

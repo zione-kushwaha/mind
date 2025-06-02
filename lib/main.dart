@@ -1,6 +1,7 @@
 import 'package:abc/features/home/Emotion/src/data/repositories_impl/images_repository_impl.dart'
     show ImagesRepositoryImpl;
 import 'package:abc/features/home/surface/view/home_screen.dart';
+import 'package:abc/tab/profile/profile_view.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Mind bridge',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           appBarTheme: AppBarTheme(
